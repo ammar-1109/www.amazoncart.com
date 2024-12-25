@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Friday Sales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #131921;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .marquee {
+            background-color: #ff9900;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .shopping {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            margin: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .item h2 {
+            font-size: 20px;
+            padding: 15px 0;
+            color: #333;
+        }
+
+        .item .price {
+            font-size: 24px;
+            color: #ff9900;
+            font-weight: bold;
+        }
+
+        .item .quantity {
+            margin: 15px 0;
+        }
+
+        .item select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .item .total-price {
+            font-size: 20px;
+            margin: 15px 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .item button {
+            background-color: #ff9900;
+            color: white;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-bottom: 25px;
+        }
+
+        .item button:hover {
+            background-color: #e68900;
+        }
+
+        footer {
+            background-color: #131921;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                Black Friday Sales
+            </div>
+        </div>
+        <div class="marquee">
+            <marquee>Shop Black Friday Deals Now!</marquee>
+        </div>
+    </header>
+
+    <div class="shopping">
+        <div class="item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkRrbVD0EC95OT7PA4pXbzZnGYe1ENTZX3eA&s" alt="Product 1">
+            <h2>Product 1 - Great Deal</h2>
+            <p class="price">$99.99</p>
+            <div class="quantity">
+                <label for="product1">Quantity: </label>
+                <select id="product1" class="quantity-select" data-price="99.99">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <p class="total-price" id="total1">$99.99</p>
+            <button onclick="buyNow(1)">Buy Now</button>
+        </div>
+
+        <div class="item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ10jr9lLI_HC2UiNNivh3TwuIX9kfkngtBA&s" alt="Product 2">
+            <h2>Product 2 - Black Friday Special</h2>
+            <p class="price">$149.99</p>
+            <div class="quantity">
+                <label for="product2">Quantity: </label>
+                <select id="product2" class="quantity-select" data-price="149.99">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <p class="total-price" id="total2">$149.99</p>
+            <button onclick="buyNow(2)">Buy Now</button>
+        </div>
+        <div class="item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcFlFQKNvDUZlWNSne-x4i5gG_sl2wd1APDg&s" alt="Product 3">
+            <h2>Product 3 - Must Have</h2>
+            <p class="price">$79.99</p>
+            <div class="quantity">
+                <label for="product3">Quantity: </label>
+                <select id="product3" class="quantity-select" data-price="79.99">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <p class="total-price" id="total3">$79.99</p>
+            <button onclick="buyNow(3)">Buy Now</button>
+        </div>
+        <div class="item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0x6KsZizLM3hPdkrgbMDSeBYHoCzedVVFNw&s" alt="Product 4">
+            <h2>Product 4 - Hot Offer</h2>
+            <p class="price">$199.99</p>
+            <div class="quantity">
+                <label for="product4">Quantity: </label>
+                <select id="product4" class="quantity-select" data-price="199.99">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <p class="total-price" id="total4">$199.99</p>
+            <button onclick="buyNow(4)">Buy Now</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Black Friday Sales. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.quantity-select').forEach(select => {
+            select.addEventListener('change', (event) => {
+                const price = parseFloat(event.target.getAttribute('data-price'));
+                const quantity = parseInt(event.target.value);
+                const total = (price * quantity).toFixed(2);
+                document.getElementById('total' + event.target.id.slice(-1)).textContent = `$${total}`;
+            });
+        });
+
+
+        function buyNow(productNumber) {
+            alert(`You are buying Product ${productNumber}. Proceeding to payment...`);
+            window.location.href = 'payment.html'; 
+        }
+    </script>
+</body>
+</html>

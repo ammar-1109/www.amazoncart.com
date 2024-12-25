@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Care Under $25 - Amazon Sales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #131921;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .shopping {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 0 10px;
+        }
+
+        .item {
+            background-color: white;
+            padding: 20px;
+            margin: 15px;
+            text-align: center;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .item:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 16px;
+            color: #e47911;
+            margin-bottom: 10px;
+        }
+
+        .quantity {
+            margin: 10px 0;
+        }
+
+        .quantity select {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        .total-price {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #f0c14b;
+            border: 1px solid #a88734;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #e2a900;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #131921;
+            color: white;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        .marquee {
+            background-color: #ff9900;
+            color: white;
+            padding: 5px 0;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-logo">
+            Amazon Sales - Personal Care Under $25
+        </div>
+    </header>
+
+   
+    <div class="marquee">
+        <marquee>Shop Amazon Deals for Personal Care Now!</marquee>
+    </div>
+
+    <div class="shopping">
+       
+        <div class="item">
+            <img src="https://www.biotique.com/cdn/shop/articles/choose-the-right-facial-cleansers-to-treat-your-skin-concerns-900x450.png?v=1667210821" alt="Care Product 1">
+            <h2>Facial Cleanser</h2>
+            <p class="price">$14.99</p>
+            <div class="quantity">
+                <label for="product1">Quantity: </label>
+                <select id="product1" class="quantity-select" data-price="14.99">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <p class="total-price" id="total1">$14.99</p>
+            <button onclick="buyNow(1)">Buy Now</button>
+        </div>
+
+        
+        <div class="item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4NAxsYlRCT8jXbF4OZo63A7zlWvqOscKp_g&s" alt="Care Product 2">
+            <h2>Shampoo</h2>
+            <p class="price">$9.99</p>
+            <div class="quantity">
+                <label for="product2">Quantity: </label>
+                <select id="product2" class="quantity-select" data-price="9.99">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <p class="total-price" id="total2">$9.99</p>
+            <button onclick="buyNow(2)">Buy Now</button>
+        </div>
+
+        
+        <div class="item">
+            <img src="https://c8.alamy.com/comp/J6130R/poznan-poland-may-5-2017-colgate-a-brand-of-oral-hygiene-products-J6130R.jpg" alt="Care Product 3">
+            <h2>Toothpaste</h2>
+            <p class="price">$5.99</p>
+            <div class="quantity">
+                <label for="product3">Quantity: </label>
+                <select id="product3" class="quantity-select" data-price="5.99">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <p class="total-price" id="total3">$5.99</p>
+            <button onclick="buyNow(3)">Buy Now</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Amazon Sales. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.quantity-select').forEach(select => {
+            select.addEventListener('change', (event) => {
+                const price = parseFloat(event.target.getAttribute('data-price'));
+                const quantity = parseInt(event.target.value);
+                const total = (price * quantity).toFixed(2);
+                document.getElementById('total' + event.target.id.slice(-1)).textContent = `$${total}`;
+            });
+        });
+
+        function buyNow(productNumber) {
+            alert(`You are buying Product ${productNumber}. Proceeding to payment...`);
+            window.location.href = 'payment.html'; 
+        }
+    </script>
+</body>
+</html>
