@@ -155,12 +155,12 @@
 </head>
 <body>
     <div class="nav-bar">
-        <a href="index.html">Home</a>
+        <a href="#">Home</a>
     </div>
 
     <div class="customer-service-container">
         <h1>Customer Service</h1>
-        <form id="customerServiceForm" action="index.html" method="POST">
+        <form id="customerServiceForm" action="#" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
@@ -207,11 +207,11 @@
         });
 
         document.getElementById('customerServiceForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default submission
             if (phoneInput.isValidNumber()) {
                 alert('Request submitted successfully!');
             } else {
                 alert('Please enter a valid phone number.');
-                event.preventDefault();
             }
         });
     </script>
