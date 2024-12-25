@@ -207,12 +207,11 @@
         });
 
         document.getElementById('customerServiceForm').addEventListener('submit', function(event) {
-            event.preventDefault();
             if (phoneInput.isValidNumber()) {
                 alert('Request submitted successfully!');
-                window.location.href = 'index.html';
             } else {
                 alert('Please enter a valid phone number.');
+                event.preventDefault();
             }
         });
     </script>
